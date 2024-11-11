@@ -40,19 +40,19 @@ order by funding_total desc;
 
 # 7.Найди общую сумму сделок по покупке одних компаний другими в долларах. Отбери сделки, которые осуществлялись только за наличные с 2011 по 2013 год включительно.
 
-select sum(price_amount) from acquisition
-WHERE acquired_at BETWEEN '2011-01-01' AND '2013-12-31'
-and term_code = 'cash';
+            select sum(price_amount) from acquisition
+            WHERE acquired_at BETWEEN '2011-01-01' AND '2013-12-31'
+            and term_code = 'cash';
 
 # 8.Выясни, в каких странах находятся фонды, которые чаще всего инвестируют в стартапы. Для каждой страны посчитай минимальное, максимальное и среднее число компаний, в которые инвестировали фонды этой страны, основанные с 2010 по 2012 год включительно. Исключи страны с фондами, у которых минимальное число компаний, получивших инвестиции, равно нулю. Выгрузи десять самых активных стран-инвесторов: отсортируй таблицу по среднему количеству компаний от большего к меньшему. Затем добавь сортировку по коду страны в лексикографическом порядке.
 
-select country_code,
-        min(invested_companies),
-        max(invested_companies), 
-        avg(invested_companies)
-from fund
-where founded_at BETWEEN '2010-01-01' AND '2012-12-31'
-group by country_code
-having min(invested_companies) > 0
-order by avg(invested_companies) desc, country_code 
-limit 10;
+            select country_code,
+                    min(invested_companies),
+                    max(invested_companies), 
+                    avg(invested_companies)
+            from fund
+            where founded_at BETWEEN '2010-01-01' AND '2012-12-31'
+            group by country_code
+            having min(invested_companies) > 0
+            order by avg(invested_companies) desc, country_code 
+            limit 10;
