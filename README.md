@@ -13,7 +13,9 @@ order by funding_total desc;
 
 # 3.Отобрази имя, фамилию и названия аккаунтов людей в поле network_username, которые начинаются на 'Silver'.
 
-select first_name,last_name,network_username from people
+select first_name,
+            last_name,
+            network_username from people
 where network_username like 'Silver%';
 
 # 4.Выведи на экран всю информацию о людях, у которых названия аккаунтов в поле network_username содержат подстроку 'money', а фамилия начинается на 'K'.
