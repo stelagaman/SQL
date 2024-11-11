@@ -2,14 +2,14 @@
 ![Image](https://github.com/user-attachments/assets/eba283bc-a24d-40bc-915a-40ecfc6fb171)
 # 1.Посчитай, сколько компаний закрылось.
 
-select count(status) from company
-where status = 'closed';
+            select count(status) from company
+            where status = 'closed';
 
 # 2.Отобрази количество привлечённых средств для новостных компаний США. Используй данные из таблицы company. Отсортируй таблицу по убыванию значений в поле funding_total.
 
-select funding_total from company
-where category_code = 'news' and country_code = 'USA'
-order by funding_total desc;
+            select funding_total from company
+            where category_code = 'news' and country_code = 'USA'
+            order by funding_total desc;
 
 # 3.Отобрази имя, фамилию и названия аккаунтов людей в поле network_username, которые начинаются на 'Silver'.
 
